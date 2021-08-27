@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
+    <style>
+        html {
+            font-size: xx-large;
+            font-family: 'Bad Script', serif;
+        }
+        
+        table {
+            border-collapse: collapse;
+        }
+        
+        tr {
+            height: 70px;
+        }
+        
+        td {
+            border: 1px solid black;
+            text-align: center;
+            width: 70px;
+        }
+    </style>
+
+    <script>
+        function shuffle(array) {
+            var currentIndex = array.length,
+                randomIndex;
+
+            // While there remain elements to shuffle...
+            while (currentIndex != 0) {
+
+                // Pick a remaining element...
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+
+                // And swap it with the current element.
+                [array[currentIndex], array[randomIndex]] = [
+                    array[randomIndex], array[currentIndex]
+                ];
+            }
+
+            return array;
+        }
+    </script>
+</head>
+
+<body>
+
+    <p>
+        Никита, учи таблицу умножения!
+    </p>
+    <p>
+        <table>
+            <script>
+                var emojis = ["	&#128512;", "&#128513;", "&#128514;", "&#128515;",
+                    "&#128516;", "&#128518;", "&#128519;", "&#128521;", "&#128522;",
+                    "&#128523;", "&#128525;", "&#128526;", "&#128539;", "&#128540;",
+                    "&#129299;", "&#129300;", "&#129315;", "&#129321;", "&#129322;",
+                    "&#129327;", "&#129488;"
+                ]
+                var cols = [2, 3, 4, 5, 6, 7, 8, 9];
+                var rows = [2, 3, 4, 5, 6, 7, 8, 9];
+                shuffle(cols)
+                shuffle(rows)
+                document.write("<tr>");
+                document.write("<td>" + emojis[Math.floor(Math.random() * emojis.length)] + "</td>");
+                for (c = 0; c < 8; c++) {
+                    document.write("<td>" + cols[c] + "</td>");
+                }
+                document.write("</tr>");
+                for (r = 0; r < 8; r++) {
+                    document.write("<tr>");
+                    document.write("<td>" + rows[r] + "</td>");
+                    for (c = 0; c < 8; c++) {
+                        document.write("<td>" + "&nbsp;" + "</td>");
+                    }
+                    document.write("</tr>");
+                }
+            </script>
+        </table>
+    </p>
+    <p>
+        <form>
+            <button onclick="window.print();">Print</button>
+            <button onclick="window.location.reload(false);">Reload</button>
+        </form>
+    </p>
+
+</body>
+
+</html>
